@@ -20,6 +20,8 @@ Lektion 3.1 SWT-F19
 
 ### Reverse Engineering <a name="reverse"></a>
 
+![UML](UMLDiagram.PNG)
+
 ### Design Refactoring <a name="design"></a>
 
 #### Identify
