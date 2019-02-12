@@ -32,10 +32,13 @@ Lektion 3.1 SWT-F19
 #### Inject
 
 ## Tasks
+- [X] 1.0 Have 1 person in the team commit and push the ECS Legacy Solution available from Blackboard to a new empty Git repository on GitHub.Then, have everybody in the team else clone the repository. At this point, all team members have a clone of the legacy code.
+
+- [X] 2.0 Reverse-engineer the ECS legacy code: Create a UML class diagram of the existing solution and use this to identify the flaws in the design when it comes to testability.
 
 - [X] 3.1 Create a design that, for each of the flaws you identified before, proposes a solution. Apply the techniques discussed in class to make the design more testable.
 
-- [ ] 3.2 Implement your refactored design, in a new application project, under the same solution. Commit and push the changes.
+- [X] 3.2 Implement your refactored design, in a new application project, under the same solution. Commit and push the changes.
 
 - [ ] 3.3 Pull the changes. Then, create unit tests for the refactored version of the class ECS, in a new test class library project.
 
