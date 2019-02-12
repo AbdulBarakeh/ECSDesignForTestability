@@ -24,6 +24,9 @@ Lektion 3.1 SWT-F19
 
 ### Design Refactoring <a name="design"></a>
 
+![UML](UMLDiagramRefactor.PNG)
+
+
 #### Identify
 #### Interface
 #### Inject
