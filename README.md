@@ -30,7 +30,7 @@ Lektion 3.1 SWT-F19
 
 ## Tasks
 
-- [ ] 3.1 Create a design that, for each of the flaws you identified before, proposes a solution. Apply the techniques discussed in class to make the design more testable.
+- [X] 3.1 Create a design that, for each of the flaws you identified before, proposes a solution. Apply the techniques discussed in class to make the design more testable.
 
 - [ ] 3.2 Implement your refactored design, in a new application project, under the same solution. Commit and push the changes.
 
