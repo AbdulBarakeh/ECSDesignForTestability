@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace ECS.Application
 {
-    class FakeHeater : IHeater
+    public class FakeHeater : IHeater
     {
         public void TurnOn()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void TurnOff()
         {
-            throw new NotImplementedException();
+        
         }
     }
 }

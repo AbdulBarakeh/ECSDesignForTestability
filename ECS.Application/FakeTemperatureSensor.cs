@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ECS.Application
 {
-    class FakeTemperatureSensor : ITemperatureSensor
+    public class FakeTemperatureSensor : ITemperatureSensor
     {
+        public int TemperatureWillBe = 0;
+
         public int GetTemperature()
         {
-            throw new NotImplementedException();
+            return TemperatureWillBe;
         }
     }
 }

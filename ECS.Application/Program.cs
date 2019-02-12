@@ -10,7 +10,8 @@ namespace ECS.Application
     {
         static void Main(string[] args)
         {
-
+            FakeTemperatureSensor p = new FakeTemperatureSensor();
+  
         }
     }
 }
