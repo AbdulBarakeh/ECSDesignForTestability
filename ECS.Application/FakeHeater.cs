@@ -10,12 +10,12 @@ namespace ECS.Application
     {
         public void TurnOn()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void TurnOff()
         {
-            throw new NotImplementedException();
+        
         }
     }
 }

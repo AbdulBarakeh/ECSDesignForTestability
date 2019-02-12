@@ -8,9 +8,11 @@ namespace ECS.Application
 {
     public class FakeTemperatureSensor : ITemperatureSensor
     {
+        public int TemperatureWillBe = 0;
+
         public int GetTemperature()
         {
-            throw new NotImplementedException();
+            return TemperatureWillBe;
         }
     }
 }

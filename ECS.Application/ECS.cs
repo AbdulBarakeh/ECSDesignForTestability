@@ -13,19 +13,25 @@ namespace ECS.Application
         private IHeater _heater;
         private ITemperatureSensor _temperatureSensor;
 
-        public ECS(int threshold)
+        public ECS(int threshold, IHeater heater, ITemperatureSensor temperatureSensor)
         {
             Threshold = threshold;
+            _heater = heater;
+            _temperatureSensor = temperatureSensor;
         }
 
         public void Regulate()
         {
-
+            int temperature = _temperatureSensor.GetTemperature();
+            if(temperature < Threshold)
+                _heater.TurnOn();
+            else 
+                _heater.TurnOff();
         }
 
         public int GetCurrentTemperature()
         {
-            return 0;
+            return _temperatureSensor.GetTemperature();
         }
     }
 }
