@@ -10,6 +10,9 @@ namespace ECS.Application
     {
         private int Threshold { get; set; }
 
+        private IHeater _heater;
+        private ITemperatureSensor _temperatureSensor;
+
         public ECS(int threshold)
         {
             Threshold = threshold;

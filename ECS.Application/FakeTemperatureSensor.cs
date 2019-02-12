@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECS.Application
 {
-    class FakeTemperatureSensor : ITemperatureSensor
+    public class FakeTemperatureSensor : ITemperatureSensor
     {
         public int GetTemperature()
         {
