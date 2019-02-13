@@ -67,7 +67,6 @@ namespace ECS.Test.Unit
             _uut.Regulate();
 
             Assert.That(_mockheater.TurnOnCalledTimes, Is.EqualTo(1));
-
         }
 
         [Test]
@@ -101,7 +100,6 @@ namespace ECS.Test.Unit
             _uut.Regulate();
 
             Assert.That(_mockheater.TurnOffCalledTimes, Is.EqualTo(1));
-
         }
 
         [Test]
@@ -113,7 +111,6 @@ namespace ECS.Test.Unit
             _uut.Regulate();
 
             Assert.That(_mockheater.TurnOffCalledTimes, Is.EqualTo(1));
-
         }
 
     }
