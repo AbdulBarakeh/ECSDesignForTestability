@@ -18,7 +18,7 @@ namespace ECS.Test.Unit
         }
     }
 
-    // USED FOR BEHAVIORAL TEST (ASSERT ON MOCK)
+    // USED FOR BEHAVIORAL TEST (ASSERT ON MOCK) 
     public class MockTemperatureSensor : ITemperatureSensor
     {
         public int Temperature { get; set; }
