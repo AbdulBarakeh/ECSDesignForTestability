@@ -11,12 +11,12 @@ namespace ECS.Test.Unit
     {
         public void TurnOn()
         {
-            
+
         }
 
         public void TurnOff()
         {
-        
+
         }
     }
 }
