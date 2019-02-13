@@ -93,8 +93,26 @@ namespace ECS.Test.Unit
         }
 
         [Test]
-        public void Regulate_TemperatureEqualThreshold_CalledHeaterTurnOffOnce()
+        public void Regulate_PositiveTemperatureEqualThreshold_CalledHeaterTurnOffOnce()
         {
+            _uut = new Application.ECS(24, _mockheater, _mocksensor);
+            _mocksensor.Temperature = 24;
+
+            _uut.Regulate();
+
+            Assert.That(_mockheater.TurnOffCalledTimes, Is.EqualTo(1));
+
+        }
+
+        [Test]
+        public void Regulate_NegativeTemperatureEqualThreshold_CalledHeaterTurnOffOnce()
+        {
+            _uut = new Application.ECS(-5, _mockheater, _mocksensor);
+            _mocksensor.Temperature = -5;
+
+            _uut.Regulate();
+
+            Assert.That(_mockheater.TurnOffCalledTimes, Is.EqualTo(1));
 
         }
 
