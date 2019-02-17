@@ -8,22 +8,24 @@ namespace ECS.Application
 {
     public class ECS
     {
-        private int Threshold { get; set; }
+        public int HeaterThreshold { get; set; }
+        public int WindowThreshold { get; set; } 
 
-        private IHeater _heater;
-        private ITemperatureSensor _temperatureSensor;
+        private readonly IHeater _heater;
+        private readonly ITemperatureSensor _temperatureSensor;
 
-        public ECS(int threshold, IHeater heater, ITemperatureSensor temperatureSensor)
+        public ECS(IHeater heater, ITemperatureSensor temperatureSensor)
         {
-            Threshold = threshold;
+            HeaterThreshold = 0;
+            WindowThreshold = 0;
             _heater = heater;
             _temperatureSensor = temperatureSensor;
         }
 
         public void Regulate()
         {
-            int temperature = _temperatureSensor.GetTemperature();
-            if(temperature < Threshold)
+            var temperature = _temperatureSensor.GetTemperature();
+            if(temperature < HeaterThreshold)
                 _heater.TurnOn();
             else 
                 _heater.TurnOff();
