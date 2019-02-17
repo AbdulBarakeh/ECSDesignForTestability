@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ECS.Application
 {
-    interface IWindow
+    public interface IWindow
     {
+        void Open();
+        void Close();
     }
 }

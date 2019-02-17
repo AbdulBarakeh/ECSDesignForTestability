@@ -11,23 +11,28 @@ namespace ECS.Test.Unit
         private Application.ECS _uut;
         private StubHeater _stubheater;
         private StubTemperatureSensor _stubsensor;
+        private StubWindow _stubWindow;
+
         private MockHeater _mockheater;
         private MockTemperatureSensor _mocksensor;
+        private MockWindow _mockWindow;
 
         [SetUp]
         public void Setup()
         {
             _stubheater = new StubHeater();
             _stubsensor = new StubTemperatureSensor();
+            _stubWindow = new StubWindow();
 
             _mockheater = new MockHeater();
             _mocksensor = new MockTemperatureSensor();
+            _mockWindow = new MockWindow();   
         }
 
         [Test]
         public void GetTemperature_PositiveTemperature_ResultIsCorrect()
         {
-            _uut = new Application.ECS(24, _stubheater, _stubsensor);
+            _uut = new Application.ECS(_stubheater, _stubsensor, _stubWindow);
             _stubsensor.Temperature = 25;
 
             var result = _uut.GetCurrentTemperature();
@@ -38,7 +43,7 @@ namespace ECS.Test.Unit
         [Test]
         public void GetTemperature_NegativeTemperature_ResultIsCorrect()
         {
-            _uut = new Application.ECS(24, _stubheater, _stubsensor);
+            _uut = new Application.ECS(_stubheater, _stubsensor, _stubWindow);
             _stubsensor.Temperature = -5;
 
             var result = _uut.GetCurrentTemperature();
@@ -50,8 +55,8 @@ namespace ECS.Test.Unit
         [Test]
         public void Regulate_PositiveTemperatureBelowThreshold_CalledHeaterTurnOnOnce()
         {
-            _uut = new Application.ECS(24, _mockheater, _mocksensor);
-            _mocksensor.Temperature = 20;
+            _uut = new Application.ECS(_mockheater, _stubsensor, _stubWindow) {HeaterThreshold = 24};
+            _stubsensor.Temperature = 20;
 
             _uut.Regulate();
 
@@ -61,8 +66,8 @@ namespace ECS.Test.Unit
         [Test]
         public void Regulate_NegativeTemperatureBelowThreshold_CalledHeaterTurnOnOnce()
         {
-            _uut = new Application.ECS(24, _mockheater, _mocksensor);
-            _mocksensor.Temperature = -5;
+            _uut = new Application.ECS(_mockheater, _stubsensor, _stubWindow) { HeaterThreshold = 24 };
+            _stubsensor.Temperature = -5;
 
             _uut.Regulate();
 
@@ -72,8 +77,8 @@ namespace ECS.Test.Unit
         [Test]
         public void Regulate_PositiveTemperatureAboveThreshold_CalledHeaterTurnOffOnce()
         {
-            _uut = new Application.ECS(20, _mockheater, _mocksensor);
-            _mocksensor.Temperature = 25;
+            _uut = new Application.ECS(_mockheater, _stubsensor, _stubWindow) { HeaterThreshold = 24 };
+            _stubsensor.Temperature = 25;
 
             _uut.Regulate();
 
@@ -83,8 +88,8 @@ namespace ECS.Test.Unit
         [Test]
         public void Regulate_NegativeTemperatureAboveThreshold_CalledHeaterTurnOffOnce()
         {
-            _uut = new Application.ECS(-5, _mockheater, _mocksensor);
-            _mocksensor.Temperature = -2;
+            _uut = new Application.ECS(_mockheater, _stubsensor, _stubWindow) { HeaterThreshold = -5 };
+            _stubsensor.Temperature = -2;
 
             _uut.Regulate();
 
@@ -94,8 +99,8 @@ namespace ECS.Test.Unit
         [Test]
         public void Regulate_PositiveTemperatureEqualThreshold_CalledHeaterTurnOffOnce()
         {
-            _uut = new Application.ECS(24, _mockheater, _mocksensor);
-            _mocksensor.Temperature = 24;
+            _uut = new Application.ECS(_mockheater, _stubsensor, _stubWindow) { HeaterThreshold = 24 };
+            _stubsensor.Temperature = 24;
 
             _uut.Regulate();
 
@@ -105,8 +110,8 @@ namespace ECS.Test.Unit
         [Test]
         public void Regulate_NegativeTemperatureEqualThreshold_CalledHeaterTurnOffOnce()
         {
-            _uut = new Application.ECS(-5, _mockheater, _mocksensor);
-            _mocksensor.Temperature = -5;
+            _uut = new Application.ECS(_mockheater, _stubsensor, _stubWindow) { HeaterThreshold = -5 };
+            _stubsensor.Temperature = -5;
 
             _uut.Regulate();
 

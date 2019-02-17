@@ -50,6 +50,7 @@
     <Compile Include="ECSUnitTest.cs" />
     <Compile Include="FakeHeater.cs" />
     <Compile Include="FakeTemperatureSensor.cs" />
+    <Compile Include="FakeWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
